@@ -21,7 +21,11 @@ import java.util.Objects;
 @Controller
 public class BookingController {
     @GetMapping("/booking")
-
+    /*
+    public String showBookingPage() {
+        return "booking";
+    }
+     */
     //take room data from database and display it on booking page and also render the booking page
     public String getRoom(Model model) {
         DataSource dataSource = new DriverManagerDataSource(
