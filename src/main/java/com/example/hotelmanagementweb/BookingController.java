@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.sql.DataSource;
@@ -13,16 +14,31 @@ import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 @Controller
 public class BookingController {
     @GetMapping("/booking")
-    public String showBookingPage() {
+
+    //take room data from database and display it on booking page and also render the booking page
+    public String getRoom(Model model) {
+        DataSource dataSource = new DriverManagerDataSource(
+                "jdbc:mysql://localhost:3306/hotelmanagement",
+                "root",
+                "");
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        String sql = "SELECT * FROM room WHERE Room_Status = 'Trống'";
+        List<Room> rooms = jdbcTemplate.query(sql, (rs, rowNum) -> new Room(rs.getInt("Room_ID"), rs.getString("Room_Type"), rs.getString("Room_Status"), rs.getFloat("Room_Price")));
+        model.addAttribute("rooms", rooms);
+
         return "booking";
     }
     @PostMapping("/booking")
+
+
+
     @ResponseBody
     public String processBookingForm(@RequestBody Map<String, Object> formData) {
         String name = (String) formData.get("name");
