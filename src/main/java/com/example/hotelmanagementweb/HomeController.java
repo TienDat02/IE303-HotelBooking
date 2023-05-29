@@ -15,7 +15,5 @@ public class HomeController {
         return "redirect:/about";
     }
     @RequestMapping("/booking")
-    public String booking() {
-        return "redirect:/booking";
-    }
+    public String booking() { return "redirect:/booking"; }
 }
