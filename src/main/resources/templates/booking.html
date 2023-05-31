@@ -175,8 +175,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="email" class="form-control" id="email" placeholder="Email">
-                                            <label for="email">Email</label>
+                                            <input type="text" class="form-control" id="cccd" placeholder="CCCD">
+                                            <label for="cccd">CCCD</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -279,18 +279,27 @@
 
 
                                     $(function () {
-                                        $('#date4').datetimepicker({
+                                        $('#date3').datetimepicker({
                                             format: 'DD/MM/YYYY hh:mm:ss',
-                                            useCurrent: false
+                                            useCurrent: false,
+                                            defaultDate: moment(),
+                                            minDate: moment()
                                         });
                                     });
 
                                     $(function () {
-                                        $('#date3').datetimepicker({
+                                        $('#date4').datetimepicker({
                                             format: 'DD/MM/YYYY hh:mm:ss',
-                                            useCurrent: false
+                                            useCurrent: false,
+                                            defaultDate: moment(),
+                                            minDate: moment()
                                         });
                                     });
+
+                                    var checkin = $('#checkin').val();
+                                    var checkout = $('#checkout').val();
+                                    formData.checkin = checkin;
+                                    formData.checkout = checkout;
 
                                 </script>
                             </form>

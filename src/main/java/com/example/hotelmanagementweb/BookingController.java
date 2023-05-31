@@ -13,6 +13,8 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,8 +34,19 @@ public class BookingController {
                 "jdbc:mysql://localhost:3306/hotelmanagement",
                 "root",
                 "123456");
+
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         String sql = "SELECT * FROM room WHERE Room_Status = 'Trống'";
+
+        //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        //String formattedCheckin = checkin.format(formatter);
+        //String formattedCheckout = checkout.format(formatter);
+
+        //String sql = "SELECT * FROM room " +
+        //     "JOIN reservation ON room.Room_ID = reservation.Room_ID " +
+        //     "WHERE Room_Status = 'Trống' " +
+        //     "AND ((Expected_Checkin_Date >= '" + formattedCheckin + "' AND Expected_Checkin_Date >= '" + formattedCheckout + "') " +
+        //     "OR (Expected_Checkout_Date <= '" + formattedCheckin + "' AND Expected_Checkout_Date <= '" + formattedCheckout + "'))";
         List<Room> rooms = jdbcTemplate.query(sql, (rs, rowNum) -> new Room(rs.getInt("Room_ID"), rs.getString("Room_Type"), rs.getString("Room_Status"), rs.getFloat("Room_Price")));
         model.addAttribute("rooms", rooms);
 
@@ -47,11 +60,14 @@ public class BookingController {
     public String processBookingForm(@RequestBody Map<String, Object> formData) {
         String name = (String) formData.get("name");
         String phone = (String) formData.get("phone");
-        String email = (String) formData.get("email");
-
+        String cccd = (String) formData.get("cccd");
+        LocalDateTime checkin = (LocalDateTime) formData.get("checkin");
+        LocalDateTime checkout = (LocalDateTime) formData.get("checkout");
         int adults = (int) formData.get("adults");
         int children = (int) formData.get("children");
         int room = (int) formData.get("room");
+
+        int numberOfGuesst = adults + children;
         String specialRequests = (String) formData.get("message");
 
         // Create a DataSource object to connect to the database
@@ -64,21 +80,25 @@ public class BookingController {
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
         // Construct an SQL INSERT statement with placeholders for the form data
-        String sql = "INSERT INTO bookings (name, phone , email, adults, children, room, special_requests) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sqlReservation = "INSERT INTO reservation (Guest_ID, Room_ID, Number_ofGuest, Expected_Checkin_Date, Expected_Checkout_Date) " +
+                "VALUES (?, ?, ?, ?, ?)";
+
+        String sqlGuest = "INSERT INTO guest (Guest_ID, Guest_name, Guest_Phone, Guest_Note) " +
+                "VALUES (?, ?, ?, ?)";
 
         // Execute the INSERT statement with the form data as arguments
-        jdbcTemplate.update(sql, name, phone, email, adults, children, room, specialRequests);
+        jdbcTemplate.update(sqlReservation, cccd, room, numberOfGuesst, checkin, checkout);
+        jdbcTemplate.update(sqlGuest, cccd, name, phone, specialRequests);
 
         //update room from room "trống" to "đặt trước"
-        String updateSql = "UPDATE room SET Room_Status = 'Đặt trước' WHERE Room_ID = ?";
-        jdbcTemplate.update(updateSql, room);
+        //String updateSql = "UPDATE room SET Room_Status = 'Đặt trước' WHERE Room_ID = ?";
+        //jdbcTemplate.update(updateSql, room);
 
         // Return a JSON response with the retrieved form data
         Map<String, Object> responseData = new HashMap<>();
         responseData.put("name", name);
-        responseData.put("phone", name);
-        responseData.put("email", email);
+        responseData.put("phone", phone);
+        responseData.put("cccd", cccd);
 
         responseData.put("adults", adults);
         responseData.put("children", children);
