@@ -29,24 +29,32 @@ public class BookingController {
     }
      */
     //take room data from database and display it on booking page and also render the booking page
-    public String getRoom(Model model) {
+    public String getRoom(Model model, Map<String, Object> formData) {
         DataSource dataSource = new DriverManagerDataSource(
                 "jdbc:mysql://localhost:3306/hotelmanagement",
                 "root",
                 "123456");
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-        String sql = "SELECT * FROM room WHERE Room_Status = 'Trống'";
 
-        //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        //String formattedCheckin = checkin.format(formatter);
-        //String formattedCheckout = checkout.format(formatter);
+        LocalDateTime checkin = (LocalDateTime) formData.get("checkin");
+        LocalDateTime checkout = (LocalDateTime) formData.get("checkout");
+        
+        String sql;
 
-        //String sql = "SELECT * FROM room " +
-        //     "JOIN reservation ON room.Room_ID = reservation.Room_ID " +
-        //     "WHERE Room_Status = 'Trống' " +
-        //     "AND ((Expected_Checkin_Date >= '" + formattedCheckin + "' AND Expected_Checkin_Date >= '" + formattedCheckout + "') " +
-        //     "OR (Expected_Checkout_Date <= '" + formattedCheckin + "' AND Expected_Checkout_Date <= '" + formattedCheckout + "'))";
+        if (checkin == null || checkout == null) {
+            sql = "SELECT * FROM room WHERE Room_Status = 'Trống'";
+        } else {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            String formattedCheckin = checkin.format(formatter);
+            String formattedCheckout = checkout.format(formatter);
+            sql = "SELECT * FROM room " +
+            "JOIN reservation ON room.Room_ID = reservation.Room_ID " +
+            "WHERE Room_Status = 'Trống' " +
+            "AND ((Expected_Checkin_Date >= '" + formattedCheckin + "' AND Expected_Checkin_Date >= '" + formattedCheckout + "') " +
+            "OR (Expected_Checkout_Date <= '" + formattedCheckin + "' AND Expected_Checkout_Date <= '" + formattedCheckout + "'))";
+        }
+
         List<Room> rooms = jdbcTemplate.query(sql, (rs, rowNum) -> new Room(rs.getInt("Room_ID"), rs.getString("Room_Type"), rs.getString("Room_Status"), rs.getFloat("Room_Price")));
         model.addAttribute("rooms", rooms);
 

@@ -162,7 +162,7 @@
                                 <div class="row g-3">
                                     <div class="col-md-12">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="name" placeholder="Họ tên">
+                                            <input type="text" class="form-control" id="name" placeholder="Họ tên" required>
                                             <label for="name">Họ tên</label>
                                         </div>
                                     </div>
@@ -175,7 +175,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="cccd" placeholder="CCCD">
+                                            <input type="text" class="form-control" id="cccd" placeholder="CCCD" required>
                                             <label for="cccd">CCCD</label>
                                         </div>
                                     </div>
@@ -183,7 +183,7 @@
                                         <div class="form-floating date" id="date3" data-target-input="nearest">
                                             <input type="text" class="form-control datetimepicker-input" id="checkin"
                                                 placeholder="Check In" data-target="#date3"
-                                                data-toggle="datetimepicker" />
+                                                data-toggle="datetimepicker" required/>
                                             <label for="checkin">Check In</label>
                                         </div>
                                     </div>
@@ -191,7 +191,7 @@
                                         <div class="form-floating date" id="date4" data-target-input="nearest">
                                             <input type="text" class="form-control datetimepicker-input" id="checkout"
                                                 placeholder="Check Out" data-target="#date4"
-                                                data-toggle="datetimepicker" />
+                                                data-toggle="datetimepicker" required/>
                                             <label for="checkout">Check Out</label>
                                         </div>
                                     </div>
@@ -199,7 +199,7 @@
                                         <div class="form-floating">
                                             <div class="form-floating">
                                                 <input type="number" class="form-control" id="adults"
-                                                    placeholder="Số Người lớn">
+                                                    placeholder="Số Người lớn" required>
                                                 <label for="adults">Số người lớn</label>
                                             </div>
                                         </div>
@@ -207,16 +207,17 @@
                                     <div class="col-md-6">
                                         <div class="form-floating">
                                             <input type="number" class="form-control" id="children"
-                                                placeholder="Số trẻ em">
+                                                placeholder="Số trẻ em" required>
                                             <label for="children">Số trẻ em</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating">
-                                            <select class="form-select" id="select3">
+                                            <select class="form-select" id="select3" required>
+                                                <option value="" disabled selected></option>
                                                 <option th:each="room : ${rooms}" th:value="${room.roomNumber}" th:text="${room.roomNumber + ' - ' + room.roomType}"></option>
-                                                <label for="select3">Chọn phòng</label>
                                             </select>
+                                            <label for="select3">Chọn phòng</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -236,7 +237,7 @@
                                     const submitBtn = document.querySelector('#submit-btn');
 
                                     submitBtn.addEventListener('click', (event) => {
-                                        event.preventDefault(); // prevent default form submission behavior
+                                        
 
                                         const name = document.querySelector('#name').value;
                                         const phone = document.querySelector('#phone').value;
