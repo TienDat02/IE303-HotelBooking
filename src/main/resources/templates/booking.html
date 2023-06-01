@@ -214,10 +214,9 @@
                                     <div class="col-12">
                                         <div class="form-floating">
                                             <select class="form-select" id="select3">
-                                                <option th:each="room : ${rooms}" th:value="${room.roomNumber}"
-                                                    th:text="${room.roomNumber}"></option>
+                                                <option th:each="room : ${rooms}" th:value="${room.roomNumber}" th:text="${room.roomNumber + ' - ' + room.roomType}"></option>
+                                                <label for="select3">Chọn phòng</label>
                                             </select>
-                                            <label for="select3">Chọn phòng</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
