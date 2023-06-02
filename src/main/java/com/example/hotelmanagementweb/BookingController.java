@@ -31,7 +31,7 @@ public class BookingController {
         DataSource dataSource = new DriverManagerDataSource(
                 "jdbc:mysql://localhost:3306/hotelmanagement",
                 "root",
-                "123456");
+                "");
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         String sql = "SELECT * FROM room WHERE Room_Status = 'Trống'";
         List<Room> rooms = jdbcTemplate.query(sql, (rs, rowNum) -> new Room(rs.getInt("Room_ID"), rs.getString("Room_Type"), rs.getString("Room_Status"), rs.getFloat("Room_Price")));
