@@ -33,7 +33,7 @@ public class BookingController {
         DataSource dataSource = new DriverManagerDataSource(
                 "jdbc:mysql://localhost:3306/hotelmanagement",
                 "root",
-                "123456");
+                "");
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
