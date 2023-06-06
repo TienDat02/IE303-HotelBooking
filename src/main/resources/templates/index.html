@@ -35,6 +35,7 @@
     <link href="css/style.css" rel="stylesheet">
 
     <link th:href="@{/navbar}" rel="include" />
+
 </head>
 
 <body>
@@ -92,15 +93,8 @@
                                 <a th:href="@{/index}" class="nav-item nav-link active">Trang chủ</a>
                                 <a th:href="@{/about}" class="nav-item nav-link">Về chúng tôi</a>
                                 <a th:href="@{/service}" class="nav-item nav-link">Dịch vụ</a>
-                                <a th:href="@{/room}" class="nav-item nav-link">Phòng</a>
-                                <div class="nav-item dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Trang</a>
-                                    <div class="dropdown-menu rounded-0 m-0">
-                                        <a th:href="@{/booking}" class="dropdown-item">Đặt phòng</a>
-                                        <a th:href="@{/team}" class="dropdown-item">Nhóm phát triển</a>
-                                        <a th:href="@{/testimonial}" class="dropdown-item">Chứng nhận</a>
-                                    </div>
-                                </div>
+                                <a th:href="@{/room}" class="nav-item nav-link">Các hạng phòng</a>
+                                <a th:href="@{/booking}" class="nav-item nav-link">Đặt phòng</a>
                                 <a th:href="@{/contact}" class="nav-item nav-link">Liên hệ</a>
                             </div>
                             <a href="" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Đăng nhập<i
@@ -121,13 +115,10 @@
                         <img class="w-100" src="img/carousel-1.jpg" alt="Image">
                         <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div class="p-3" style="max-width: 700px;">
-                                <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">Luxury
-                                    Living</h6>
-                                <h1 class="display-3 text-white mb-4 animated slideInDown">Discover A Brand Luxurious
-                                    Hotel</h1>
-                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Our
-                                    Rooms</a>
-                                <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Book A Room</a>
+                                <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">Tận hưởng lối sống tiện nghi, sang trọng</h6>
+                                <h1 class="display-3 text-white mb-4 animated slideInDown">Hãy khám phá những tiện ích mà khách sạn chúng tôi cung cấp</h1>
+                                <a th:href="@{/room}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Các hạng phòng</a>
+                                <a th:href="@{/booking}" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Đặt phòng</a>
                             </div>
                         </div>
                     </div>
@@ -135,13 +126,10 @@
                         <img class="w-100" src="img/carousel-2.jpg" alt="Image">
                         <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div class="p-3" style="max-width: 700px;">
-                                <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">Luxury
-                                    Living</h6>
-                                <h1 class="display-3 text-white mb-4 animated slideInDown">Discover A Brand Luxurious
-                                    Hotel</h1>
-                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Our
-                                    Rooms</a>
-                                <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Book A Room</a>
+                                <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">Tận hưởng lối sống tiện nghi, sang trọng</h6>
+                                <h1 class="display-3 text-white mb-4 animated slideInDown">Hãy khám phá những tiện ích mà khách sạn chúng tôi cung cấp </h1>
+                                <a th:href="@{/room}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Các hạng phòng</a>
+                                <a th:href="@{/booking}" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Đặt phòng</a>
                             </div>
                         </div>
                     </div>
@@ -213,18 +201,16 @@
             <div class="container">
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6">
-                        <h6 class="section-title text-start text-primary text-uppercase">About Us</h6>
-                        <h1 class="mb-4">Welcome to <span class="text-primary text-uppercase">Hotelier</span></h1>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet
-                            diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna
-                            dolore erat amet</p>
+                        <h6 class="section-title text-start text-primary text-uppercase">Về chúng tôi</h6>
+                        <h1 class="mb-4">Chào mừng đến <span class="text-primary text-uppercase">RoomMaster</span></h1>
+                        <p class="mb-4">Chúng tôi mang đến những trải nghiệm tuyệt vời nhất cho khách hàng</p>
                         <div class="row g-3 pb-4">
                             <div class="col-sm-4 wow fadeIn" data-wow-delay="0.1s">
                                 <div class="border rounded p-1">
                                     <div class="border rounded text-center p-4">
                                         <i class="fa fa-hotel fa-2x text-primary mb-2"></i>
-                                        <h2 class="mb-1" data-toggle="counter-up">1234</h2>
-                                        <p class="mb-0">Rooms</p>
+                                        <h2 class="mb-1" data-toggle="counter-up">123</h2>
+                                        <p class="mb-0">Phòng</p>
                                     </div>
                                 </div>
                             </div>
@@ -232,8 +218,8 @@
                                 <div class="border rounded p-1">
                                     <div class="border rounded text-center p-4">
                                         <i class="fa fa-users-cog fa-2x text-primary mb-2"></i>
-                                        <h2 class="mb-1" data-toggle="counter-up">1234</h2>
-                                        <p class="mb-0">Staffs</p>
+                                        <h2 class="mb-1" data-toggle="counter-up">100</h2>
+                                        <p class="mb-0">Nhân viên</p>
                                     </div>
                                 </div>
                             </div>
@@ -241,13 +227,13 @@
                                 <div class="border rounded p-1">
                                     <div class="border rounded text-center p-4">
                                         <i class="fa fa-users fa-2x text-primary mb-2"></i>
-                                        <h2 class="mb-1" data-toggle="counter-up">1234</h2>
-                                        <p class="mb-0">Clients</p>
+                                        <h2 class="mb-1" data-toggle="counter-up">10000</h2>
+                                        <p class="mb-0">Khách hàng</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <a class="btn btn-primary py-3 px-5 mt-2" href="">Explore More</a>
+                        <a class="btn btn-primary py-3 px-5 mt-2" th:href="@{/about}">Tìm hiểu thêm</a>
                     </div>
                     <div class="col-lg-6">
                         <div class="row g-3">
@@ -386,7 +372,7 @@
                                     Căn hộ có thể bao gồm bếp nhỏ đầy đủ tiện nghi, khu vực ăn uống và khu vui chơi cho
                                     trẻ nhỏ, đảm bảo một kỳ nghỉ đáng nhớ cho cả gia đình.</p>
                                 <div class="d-flex justify-content-between">
-                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="./booking">Đặt phòng</a>
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" th:href="@{/booking}"> Đặt phòng</a>
                                 </div>
                             </div>
                         </div>
@@ -422,7 +408,7 @@
                                     toàn cảnh và phòng tắm giống spa với bồn tạo sóng. Du khách có thể tận hưởng những
                                     khoảnh khắc thân mật trong một môi trường được thiết kế trang nhã và tách biệt.</p>
                                 <div class="d-flex justify-content-between">
-                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="./booking">Đặt phòng</a>
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" th:href="@{/booking}">Đặt phòng</a>
                                 </div>
                             </div>
                         </div>
@@ -458,7 +444,7 @@
                                     hưởng một đêm ngon giấc trên chiếc giường cỡ queen sang trọng và sử dụng các tiện
                                     nghi tiện lợi trong phòng như tủ lạnh mini, máy pha cà phê và TV màn hình phẳng.</p>
                                 <div class="d-flex justify-content-between">
-                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="./booking">Đặt phòng</a>
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" th:href="@{/booking}">Đặt phòng</a>
                                 </div>
                             </div>
                         </div>
@@ -495,7 +481,7 @@
                                     uống giải khát và tận hưởng dịch vụ cá nhân hóa, tạo nên trải nghiệm tuyệt vời cho
                                     kỳ nghỉ khó quên.</p>
                                 <div class="d-flex justify-content-between">
-                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="./booking">Đặt phòng</a>
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" th:href="@{/booking}">Đặt phòng</a>
                                 </div>
                             </div>
                         </div>
@@ -511,13 +497,11 @@
             <div class="row g-0">
                 <div class="col-md-6 bg-dark d-flex align-items-center">
                     <div class="p-5">
-                        <h6 class="section-title text-start text-white text-uppercase mb-3">Luxury Living</h6>
-                        <h1 class="text-white mb-4">Discover A Brand Luxurious Hotel</h1>
-                        <p class="text-white mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu
-                            diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo
-                            magna dolore erat amet</p>
-                        <a href="" class="btn btn-primary py-md-3 px-md-5 me-3">Our Rooms</a>
-                        <a href="" class="btn btn-light py-md-3 px-md-5">Book A Room</a>
+                        <h6 class="section-title text-start text-white text-uppercase mb-3">Tận hưởng lối sống tiện nghi và trang trọng</h6>
+                        <h1 class="text-white mb-4">Hãy cùng chúng tôi khám phá những tiện nghi có tại khách sạn này</h1>
+                        <p class="text-white mb-4">Tận hưởng những khoảnh khắc đầy tiện nghi và sang trọng do dịch vụ mà khách sạn chúng tôi cung cấp</p>
+                        <a th:href="@{/room}" class="btn btn-primary py-md-3 px-md-5 me-3">Các hạng phòng</a>
+                        <a th:href="@{/booking}" class="btn btn-light py-md-3 px-md-5">Đặt phòng</a>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -555,86 +539,74 @@
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="section-title text-center text-primary text-uppercase">Our Services</h6>
-                    <h1 class="mb-5">Explore Our <span class="text-primary text-uppercase">Services</span></h1>
+                    <h6 class="section-title text-center text-primary text-uppercase">Dịch vụ</h6>
+                    <h1 class="mb-5">Khám phá <span class="text-primary text-uppercase">Dịch vụ </span></h1>
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <a class="service-item rounded" href="">
                             <div class="service-icon bg-transparent border rounded p-1">
-                                <div
-                                    class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
+                                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
                                     <i class="fa fa-hotel fa-2x text-primary"></i>
                                 </div>
                             </div>
-                            <h5 class="mb-3">Rooms & Appartment</h5>
-                            <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem
-                                sed diam stet diam sed stet lorem.</p>
+                            <h5 class="mb-3">Phòng</h5>
+                            <p class="text-body mb-0">Chúng tôi cung cấp nhiều loại phòng khác nhau với đầy đủ tiện nghi.</p>
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                         <a class="service-item rounded" href="">
                             <div class="service-icon bg-transparent border rounded p-1">
-                                <div
-                                    class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
+                                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
                                     <i class="fa fa-utensils fa-2x text-primary"></i>
                                 </div>
                             </div>
-                            <h5 class="mb-3">Food & Restaurant</h5>
-                            <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem
-                                sed diam stet diam sed stet lorem.</p>
+                            <h5 class="mb-3">Nhà hàng</h5>
+                            <p class="text-body mb-0">Cung cấp nhiều món ăn được chuẩn bị bởi đầu bếp nhiều năm kinh nghiệm.</p>
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                         <a class="service-item rounded" href="">
                             <div class="service-icon bg-transparent border rounded p-1">
-                                <div
-                                    class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
+                                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
                                     <i class="fa fa-spa fa-2x text-primary"></i>
                                 </div>
                             </div>
-                            <h5 class="mb-3">Spa & Fitness</h5>
-                            <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem
-                                sed diam stet diam sed stet lorem.</p>
+                            <h5 class="mb-3">Spa</h5>
+                            <p class="text-body mb-0">Cung cấp các dịch vụ thư giản và làm đẹp.</p>
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
                         <a class="service-item rounded" href="">
                             <div class="service-icon bg-transparent border rounded p-1">
-                                <div
-                                    class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
+                                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
                                     <i class="fa fa-swimmer fa-2x text-primary"></i>
                                 </div>
                             </div>
-                            <h5 class="mb-3">Sports & Gaming</h5>
-                            <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem
-                                sed diam stet diam sed stet lorem.</p>
+                            <h5 class="mb-3">Thể thao</h5>
+                            <p class="text-body mb-0">Khách sạn được trang bị nhiều sân thể thao.</p>
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                         <a class="service-item rounded" href="">
                             <div class="service-icon bg-transparent border rounded p-1">
-                                <div
-                                    class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
+                                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
                                     <i class="fa fa-glass-cheers fa-2x text-primary"></i>
                                 </div>
                             </div>
-                            <h5 class="mb-3">Event & Party</h5>
-                            <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem
-                                sed diam stet diam sed stet lorem.</p>
+                            <h5 class="mb-3">Tiệc và sự kiện</h5>
+                            <p class="text-body mb-0">Khách sạn chúng tôi nhận tổ chức các tiệc và sự kiện khác nhau.</p>
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
                         <a class="service-item rounded" href="">
                             <div class="service-icon bg-transparent border rounded p-1">
-                                <div
-                                    class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
+                                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
                                     <i class="fa fa-dumbbell fa-2x text-primary"></i>
                                 </div>
                             </div>
-                            <h5 class="mb-3">GYM & Yoga</h5>
-                            <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem
-                                sed diam stet diam sed stet lorem.</p>
+                            <h5 class="mb-3">GYM và Yoga</h5>
+                            <p class="text-body mb-0">Phòng gym chất lượng cao với hướng dẫn viên tận tâm.</p>
                         </a>
                     </div>
                 </div>
@@ -644,145 +616,123 @@
 
 
         <!-- Testimonial Start -->
-        <div class="container-xxl testimonial my-5 py-5 bg-dark wow zoomIn" data-wow-delay="0.1s">
-            <div class="container">
-                <div class="owl-carousel testimonial-carousel py-5">
-                    <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
-                        <p>Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet
-                            diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-1.jpg"
-                                style="width: 45px; height: 45px;">
-                            <div class="ps-3">
-                                <h6 class="fw-bold mb-1">Client Name</h6>
-                                <small>Profession</small>
+                    <div class="container-xxl testimonial mt-5 py-5 bg-dark wow zoomIn" data-wow-delay="0.1s" style="margin-bottom: 90px;">
+                    <div class="container">
+                        <div class="owl-carousel testimonial-carousel py-5">
+                            <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
+                                <p>Phòng đẹp thoáng mát, dịch vụ chuyên nghiệp, nhân viên tận tình</p>
+                                <div class="d-flex align-items-center">
+                                    <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-1.jpg" style="width: 45px; height: 45px;">
+                                    <div class="ps-3">
+                                        <h6 class="fw-bold mb-1">Client Name</h6>
+                                        <small>Profession</small>
+                                    </div>
+                                </div>
+                                <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
+                            </div>
+                            <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
+                                <p>Khách sạn tổ chức sự kiện chuyên nghiệp với không một chút sai sót</p>
+                                <div class="d-flex align-items-center">
+                                    <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-2.jpg" style="width: 45px; height: 45px;">
+                                    <div class="ps-3">
+                                        <h6 class="fw-bold mb-1">Client Name</h6>
+                                        <small>Profession</small>
+                                    </div>
+                                </div>
+                                <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
+                            </div>
+                            <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
+                                <p>Nhà hàng cung cấp nhiều món ăn ngon hấp dẫn</p>
+                                <div class="d-flex align-items-center">
+                                    <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-3.jpg" style="width: 45px; height: 45px;">
+                                    <div class="ps-3">
+                                        <h6 class="fw-bold mb-1">Client Name</h6>
+                                        <small>Profession</small>
+                                    </div>
+                                </div>
+                                <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
                             </div>
                         </div>
-                        <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
-                    </div>
-                    <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
-                        <p>Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet
-                            diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-2.jpg"
-                                style="width: 45px; height: 45px;">
-                            <div class="ps-3">
-                                <h6 class="fw-bold mb-1">Client Name</h6>
-                                <small>Profession</small>
-                            </div>
-                        </div>
-                        <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
-                    </div>
-                    <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
-                        <p>Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet
-                            diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-3.jpg"
-                                style="width: 45px; height: 45px;">
-                            <div class="ps-3">
-                                <h6 class="fw-bold mb-1">Client Name</h6>
-                                <small>Profession</small>
-                            </div>
-                        </div>
-                        <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
                     </div>
                 </div>
-            </div>
-        </div>
         <!-- Testimonial End -->
 
 
         <!-- Team Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="section-title text-center text-primary text-uppercase">Our Team</h6>
-                    <h1 class="mb-5">Explore Our <span class="text-primary text-uppercase">Staffs</span></h1>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="rounded shadow overflow-hidden">
-                            <div class="position-relative">
-                                <img class="img-fluid" src="img/team-1.jpg" alt="">
-                                <div
-                                    class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i
-                                            class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i
-                                            class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i
-                                            class="fab fa-instagram"></i></a>
-                                </div>
+                    <div class="container-xxl py-5">
+                        <div class="container">
+                            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                                <h6 class="section-title text-center text-primary text-uppercase">Nhóm chúng tôi</h6>
+                                <h1 class="mb-5">Cùng khám phá <span class="text-primary text-uppercase">nhân viên</span> chủ chốt</h1>
                             </div>
-                            <div class="text-center p-4 mt-3">
-                                <h5 class="fw-bold mb-0">Full Name</h5>
-                                <small>Designation</small>
+                            <div class="row g-4">
+                                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                    <div class="rounded shadow overflow-hidden">
+                                        <div class="position-relative">
+                                            <img class="img-fluid" src="img/avatar.jpg" alt="">
+                                            <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
+                                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="text-center p-4 mt-3">
+                                            <h5 class="fw-bold mb-0">Trần Tiến Đạt</h5>
+                                            <small>Nhóm trưởng</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                                    <div class="rounded shadow overflow-hidden">
+                                        <div class="position-relative">
+                                            <img class="img-fluid" src="img/avatar.jpg" alt="">
+                                            <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
+                                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="text-center p-4 mt-3">
+                                            <h5 class="fw-bold mb-0">Nguyễn Đức Duy</h5>
+                                            <small>Thành viên</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                    <div class="rounded shadow overflow-hidden">
+                                        <div class="position-relative">
+                                            <img class="img-fluid" src="img/avatar.jpg" alt="">
+                                            <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
+                                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="text-center p-4 mt-3">
+                                            <h5 class="fw-bold mb-0">Đặng Thái Hòa</h5>
+                                            <small>Thành viên</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                                    <div class="rounded shadow overflow-hidden">
+                                        <div class="position-relative">
+                                            <img class="img-fluid" src="img/avatar.jpg" alt="">
+                                            <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
+                                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="text-center p-4 mt-3">
+                                            <h5 class="fw-bold mb-0">Võ Lục Thanh Trà</h5>
+                                            <small>Thành viên</small>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="rounded shadow overflow-hidden">
-                            <div class="position-relative">
-                                <img class="img-fluid" src="img/team-2.jpg" alt="">
-                                <div
-                                    class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i
-                                            class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i
-                                            class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i
-                                            class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="text-center p-4 mt-3">
-                                <h5 class="fw-bold mb-0">Full Name</h5>
-                                <small>Designation</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="rounded shadow overflow-hidden">
-                            <div class="position-relative">
-                                <img class="img-fluid" src="img/team-3.jpg" alt="">
-                                <div
-                                    class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i
-                                            class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i
-                                            class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i
-                                            class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="text-center p-4 mt-3">
-                                <h5 class="fw-bold mb-0">Full Name</h5>
-                                <small>Designation</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="rounded shadow overflow-hidden">
-                            <div class="position-relative">
-                                <img class="img-fluid" src="img/team-4.jpg" alt="">
-                                <div
-                                    class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i
-                                            class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i
-                                            class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i
-                                            class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="text-center p-4 mt-3">
-                                <h5 class="fw-bold mb-0">Full Name</h5>
-                                <small>Designation</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!-- Team End -->
 
 
