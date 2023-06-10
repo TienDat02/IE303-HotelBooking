@@ -33,7 +33,7 @@ public class BookingController {
         DataSource dataSource = new DriverManagerDataSource(
                 "jdbc:mysql://localhost:3306/hotelmanagement",
                 "root",
-                "");
+                "123456");
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
@@ -66,23 +66,24 @@ public class BookingController {
 
     @ResponseBody
     public String processBookingForm(@RequestBody Map<String, Object> formData) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy h:mm a");
         String name = (String) formData.get("name");
         String phone = (String) formData.get("phone");
         String cccd = (String) formData.get("cccd");
-        LocalDateTime checkin = (LocalDateTime) formData.get("checkin");
-        LocalDateTime checkout = (LocalDateTime) formData.get("checkout");
-        int adults = (int) formData.get("adults");
-        int children = (int) formData.get("children");
-        int room = (int) formData.get("room");
+        LocalDateTime checkin = LocalDateTime.parse((String) formData.get("checkin"), formatter);
+        LocalDateTime checkout = LocalDateTime.parse((String) formData.get("checkout"), formatter);
+        int adults = Integer.parseInt((String) formData.get("adults"));
+        int children = Integer.parseInt((String) formData.get("children"));
+        int room = Integer.parseInt((String) formData.get("room"));
 
         int numberOfGuesst = adults + children;
         String specialRequests = (String) formData.get("message");
 
         // Create a DataSource object to connect to the database
         DataSource dataSource = new DriverManagerDataSource(
-                "jdbc:mysql://localhost:3306/HotelManagement",
+                "jdbc:mysql://localhost:3306/hotelmanagement",
                 "root",
-                "");
+                "123456");
 
         // Create a JdbcTemplate object using the DataSource
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
@@ -91,7 +92,7 @@ public class BookingController {
         String sqlReservation = "INSERT INTO reservation (Guest_ID, Room_ID, Number_ofGuest, Expected_Checkin_Date, Expected_Checkout_Date) " +
                 "VALUES (?, ?, ?, ?, ?)";
 
-        String sqlGuest = "INSERT INTO guest (Guest_ID, Guest_name, Guest_Phone, Guest_Note) " +
+        String sqlGuest = "INSERT INTO guest (Guest_ID, Guest_name, Guest_Phone, Guest_Notes) " +
                 "VALUES (?, ?, ?, ?)";
 
         // Execute the INSERT statement with the form data as arguments
