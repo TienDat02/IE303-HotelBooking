@@ -234,8 +234,7 @@
                                         <div class="form-floating">
                                             <select class="form-select" id="select3" required>
                                                 <option value="" disabled selected></option>
-                                                <option th:each="room : ${rooms}" th:value="${room.roomNumber}"
-                                                    th:text="${room.roomNumber}"></option>
+                                                <option th:each="room : ${rooms}" th:value="${room.roomNumber}" th:text="${room.roomNumber + ' - ' + room.roomType}"></option>
                                             </select>
                                             <label for="select3">Chọn phòng</label>
                                         </div>
