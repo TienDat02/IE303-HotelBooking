@@ -75,8 +75,9 @@ public class BookingController {
         int adults = Integer.parseInt((String) formData.get("adults"));
         int children = Integer.parseInt((String) formData.get("children"));
         int room = Integer.parseInt((String) formData.get("room"));
-
-        int numberOfGuesst = adults + children;
+        LocalDateTime reserveDate = LocalDateTime.now();
+        int numberOfGuest = adults + children;
+        String status = "Đặt trước";
         String specialRequests = (String) formData.get("message");
 
         // Create a DataSource object to connect to the database
@@ -88,31 +89,33 @@ public class BookingController {
         // Create a JdbcTemplate object using the DataSource
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
-        // Construct an SQL INSERT statement with placeholders for the form data
-        String sqlReservation = "INSERT INTO reservation (Guest_ID, Room_ID, Number_ofGuest, Expected_Checkin_Date, Expected_Checkout_Date) " +
-                "VALUES (?, ?, ?, ?, ?)";
+        // Check if the Guest_ID value exists in the guest table
+        String sqlCheckGuest = "SELECT COUNT(*) FROM guest WHERE Guest_ID = ?";
+        int count = jdbcTemplate.queryForObject(sqlCheckGuest, new Object[]{cccd}, Integer.class);
 
-        String sqlGuest = "INSERT INTO guest (Guest_ID, Guest_name, Guest_Phone, Guest_Notes) " +
-                "VALUES (?, ?, ?, ?)";
+        // If the Guest_ID value does not exist in the guest table, insert it
+        if (count == 0) {
+            String sqlInsertGuest = "INSERT INTO guest (Guest_ID, Guest_name, Guest_Phone, Guest_Notes) " +
+                    "VALUES (?, ?, ?, ?)";
+            jdbcTemplate.update(sqlInsertGuest, cccd, name, phone, specialRequests);
+        }
+
+        // Construct an SQL INSERT statement with placeholders for the form data
+        String sqlReservation = "INSERT INTO reservation (Guest_ID, Room_ID, Number_ofGuest, Expected_Checkin_Date, Expected_Checkout_Date, Reserve_Date, Reservation_Status) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         // Execute the INSERT statement with the form data as arguments
-        jdbcTemplate.update(sqlReservation, cccd, room, numberOfGuesst, checkin, checkout);
-        jdbcTemplate.update(sqlGuest, cccd, name, phone, specialRequests);
-
-        //update room from room "trống" to "đặt trước"
-        //String updateSql = "UPDATE room SET Room_Status = 'Đặt trước' WHERE Room_ID = ?";
-        //jdbcTemplate.update(updateSql, room);
+        jdbcTemplate.update(sqlReservation, cccd, room, numberOfGuest, checkin, checkout, reserveDate, status);
 
         // Return a JSON response with the retrieved form data
         Map<String, Object> responseData = new HashMap<>();
         responseData.put("name", name);
         responseData.put("phone", phone);
         responseData.put("cccd", cccd);
-
         responseData.put("adults", adults);
         responseData.put("children", children);
         responseData.put("room", room);
         responseData.put("specialRequests", specialRequests);
-        return new Gson().toJson(responseData);       
+        return new Gson().toJson(responseData);
     }
 }
