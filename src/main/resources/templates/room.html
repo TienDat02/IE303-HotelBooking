@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Hotelier - Hotel HTML Template</title>
+    <title>Room Master</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -75,20 +75,21 @@
         <div class="container-fluid bg-dark px-0">
             <div class="row gx-0">
                 <div class="col-lg-3 bg-dark d-none d-lg-block">
-                    <a th:href="@{/index}" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                    <a th:href="@{/index}"
+                       class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
                         <h1 class="m-0 text-primary text-uppercase">RoomMaster</h1>
                     </a>
                 </div>
                 <div class="col-lg-9">
-                    <div class="row gx-0 bg-white d-none d-lg-flex">
+                    <div class="row gx-0 dark d-none d-lg-flex">
                         <div class="col-lg-7 px-5 text-start">
                             <div class="h-100 d-inline-flex align-items-center py-2 me-4">
                                 <i class="fa fa-envelope text-primary me-2"></i>
-                                <p class="mb-0">info@example.com</p>
+                                <p class="mb-0 text-white">info@example.com</p>
                             </div>
                             <div class="h-100 d-inline-flex align-items-center py-2">
                                 <i class="fa fa-phone-alt text-primary me-2"></i>
-                                <p class="mb-0">+012 345 6789</p>
+                                <p class="mb-0 text-white">+012 345 6789</p>
                             </div>
                         </div>
                         <div class="col-lg-5 px-5 text-end">
@@ -105,18 +106,20 @@
                         <a th:href="@{/index}" class="navbar-brand d-block d-lg-none">
                             <h1 class="m-0 text-primary text-uppercase">RoomMaster</h1>
                         </a>
-                        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
+                                data-bs-target="#navbarCollapse">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
-                                <a th:href="@{/index}" class="nav-item nav-link">Trang chủ</a>
-                                <a th:href="@{/about}" class="nav-item nav-link">Về chúng tôi</a>
-                                <a th:href="@{/service}" class="nav-item nav-link">Dịch vụ</a>
-                                <a th:href="@{/room}" class="nav-item nav-link active"> Các hạng phòng</a>
+                                <a th:href="@{/index}" class="nav-item nav-link ">Trang chủ</a>
+                                <a th:href="@{/about}" class="nav-item nav-link ">Về chúng tôi</a>
+                                <a th:href="@{/service}" class="nav-item nav-link ">Dịch vụ</a>
+                                <a th:href="@{/room}" class="nav-item nav-link active">Các hạng phòng</a>
                                 <a th:href="@{/booking}" class="nav-item nav-link">Đặt phòng</a>
                                 <a th:href="@{/contact}" class="nav-item nav-link">Liên hệ</a>
                             </div>
+
                         </div>
                     </nav>
                 </div>
@@ -129,11 +132,11 @@
         <div class="container-fluid page-header mb-5 p-0" style="background-image: url(./static/img/carousel-1.jpg);">
             <div class="container-fluid page-header-inner py-5">
                 <div class="container text-center pb-5">
-                    <h1 class="display-3 text-white mb-3 animated slideInDown">Phòng</h1>
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Các hạng phòng</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center text-uppercase">
                             <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">Phòng</li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">Các hạng phòng</li>
                         </ol>
                     </nav>
                 </div>
@@ -142,11 +145,11 @@
         <!-- Page Header End -->
 
         <!-- Room Start -->
-        <div class="container-xxl py-5">
+        <div class="container-xxl">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="section-title text-center text-primary text-uppercase">Phòng</h6>
-                    <h1 class="mb-5">Danh sách <span class="text-primary text-uppercase">Phòng</span></h1>
+                    <h6 class="section-title text-center text-primary text-uppercase">Các hạng phòng</h6>
+                    <h1 class="mb-5">Danh sách các hạng <span class="text-primary text-uppercase">Phòng</span></h1>
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -330,38 +333,39 @@
 
 
         <!-- Testimonial Start -->
+        <!-- Testimonial Start -->
         <div class="container-xxl testimonial mt-5 py-5 bg-dark wow zoomIn" data-wow-delay="0.1s" style="margin-bottom: 90px;">
             <div class="container">
                 <div class="owl-carousel testimonial-carousel py-5">
                     <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
-                        <p>Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos</p>
+                        <p>Phòng đẹp thoáng mát, dịch vụ chuyên nghiệp, nhân viên tận tình</p>
                         <div class="d-flex align-items-center">
                             <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-1.jpg" style="width: 45px; height: 45px;">
                             <div class="ps-3">
-                                <h6 class="fw-bold mb-1">Client Name</h6>
-                                <small>Profession</small>
+                                <h6 class="fw-bold mb-1">Nguyễn Thị Hương</h6>
+                                <small>Khách hàng</small>
                             </div>
                         </div>
                         <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
                     </div>
                     <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
-                        <p>Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos</p>
+                        <p>Khách sạn tổ chức sự kiện chuyên nghiệp với không một chút sai sót</p>
                         <div class="d-flex align-items-center">
                             <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-2.jpg" style="width: 45px; height: 45px;">
                             <div class="ps-3">
-                                <h6 class="fw-bold mb-1">Client Name</h6>
-                                <small>Profession</small>
+                                <h6 class="fw-bold mb-1">Nguyễn Văn Sơn</h6>
+                                <small>Khách hàng</small>
                             </div>
                         </div>
                         <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
                     </div>
                     <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
-                        <p>Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos</p>
+                        <p>Nhà hàng cung cấp nhiều món ăn ngon hấp dẫn</p>
                         <div class="d-flex align-items-center">
                             <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-3.jpg" style="width: 45px; height: 45px;">
                             <div class="ps-3">
-                                <h6 class="fw-bold mb-1">Client Name</h6>
-                                <small>Profession</small>
+                                <h6 class="fw-bold mb-1">Dương Văn Cường</h6>
+                                <small>Khách hàng</small>
                             </div>
                         </div>
                         <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
@@ -369,6 +373,8 @@
                 </div>
             </div>
         </div>
+        <!-- Testimonial End -->
+
         <!-- Testimonial End -->
 
 

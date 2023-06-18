@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Hotelier - Hotel HTML Template</title>
+    <title>Room Master</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -80,15 +80,15 @@
                     </a>
                 </div>
                 <div class="col-lg-9">
-                    <div class="row gx-0 bg-white d-none d-lg-flex">
+                    <div class="row gx-0 bg-dark d-none d-lg-flex">
                         <div class="col-lg-7 px-5 text-start">
                             <div class="h-100 d-inline-flex align-items-center py-2 me-4">
                                 <i class="fa fa-envelope text-primary me-2"></i>
-                                <p class="mb-0">info@example.com</p>
+                                <p class="mb-0 text-white">info@example.com</p>
                             </div>
                             <div class="h-100 d-inline-flex align-items-center py-2">
                                 <i class="fa fa-phone-alt text-primary me-2"></i>
-                                <p class="mb-0">+012 345 6789</p>
+                                <p class="mb-0 text-white">+012 345 6789</p>
                             </div>
                         </div>
                         <div class="col-lg-5 px-5 text-end">
@@ -119,12 +119,11 @@
                                     <div class="dropdown-menu rounded-0 m-0">
                                         <a th:href="@{/booking}" class="dropdown-item">Đặt phòng</a>
                                         <a th:href="@{/team}" class="dropdown-item">Nhóm phát triển</a>
-                                        <a th:href="@{/testimonial}" class="dropdown-item active">Chứng nhận</a>
+                                        <a th:href="@{/testimonial}" class="dropdown-item active">Đánh giá</a>
                                     </div>
                                 </div>
                                 <a th:href="@{/contact}" class="nav-item nav-link">Liên hệ</a>
                             </div>
-                            <a href="https://htmlcodex.com/hotel-html-template-pro" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Premium Version<i class="fa fa-arrow-right ms-3"></i></a>
                         </div>
                     </nav>
                 </div>
@@ -149,86 +148,39 @@
         </div>
         <!-- Page Header End -->
 
-
-        <!-- Booking Start -->
-        <div class="container-fluid booking pb-5 wow fadeIn" data-wow-delay="0.1s">
-            <div class="container">
-                <div class="bg-white shadow" style="padding: 35px;">
-                    <div class="row g-2">
-                        <div class="col-md-10">
-                            <div class="row g-2">
-                                <div class="col-md-3">
-                                    <div class="date" id="date1" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input"
-                                            placeholder="Check in" data-target="#date1" data-toggle="datetimepicker" />
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="date" id="date2" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" placeholder="Check out" data-target="#date2" data-toggle="datetimepicker"/>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <select class="form-select">
-                                        <option selected>Adult</option>
-                                        <option value="1">Adult 1</option>
-                                        <option value="2">Adult 2</option>
-                                        <option value="3">Adult 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-3">
-                                    <select class="form-select">
-                                        <option selected>Child</option>
-                                        <option value="1">Child 1</option>
-                                        <option value="2">Child 2</option>
-                                        <option value="3">Child 3</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <button class="btn btn-primary w-100">Submit</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Booking End -->
-
-
         <!-- Testimonial Start -->
         <div class="container-xxl testimonial mt-5 py-5 bg-dark wow zoomIn" data-wow-delay="0.1s" style="margin-bottom: 90px;">
             <div class="container">
                 <div class="owl-carousel testimonial-carousel py-5">
                     <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
-                        <p>Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos</p>
+                        <p>Phòng đẹp thoáng mát, dịch vụ chuyên nghiệp, nhân viên tận tình</p>
                         <div class="d-flex align-items-center">
                             <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-1.jpg" style="width: 45px; height: 45px;">
                             <div class="ps-3">
-                                <h6 class="fw-bold mb-1">Client Name</h6>
-                                <small>Profession</small>
+                                <h6 class="fw-bold mb-1">Nguyễn Thị Hương</h6>
+                                <small>Khách hàng</small>
                             </div>
                         </div>
                         <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
                     </div>
                     <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
-                        <p>Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos</p>
+                        <p>Khách sạn tổ chức sự kiện chuyên nghiệp với không một chút sai sót</p>
                         <div class="d-flex align-items-center">
                             <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-2.jpg" style="width: 45px; height: 45px;">
                             <div class="ps-3">
-                                <h6 class="fw-bold mb-1">Client Name</h6>
-                                <small>Profession</small>
+                                <h6 class="fw-bold mb-1">Nguyễn Văn Sơn</h6>
+                                <small>Khách hàng</small>
                             </div>
                         </div>
                         <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
                     </div>
                     <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
-                        <p>Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos</p>
+                        <p>Nhà hàng cung cấp nhiều món ăn ngon hấp dẫn</p>
                         <div class="d-flex align-items-center">
                             <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-3.jpg" style="width: 45px; height: 45px;">
                             <div class="ps-3">
-                                <h6 class="fw-bold mb-1">Client Name</h6>
-                                <small>Profession</small>
+                                <h6 class="fw-bold mb-1">Dương Văn Cường</h6>
+                                <small>Khách hàng</small>
                             </div>
                         </div>
                         <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
